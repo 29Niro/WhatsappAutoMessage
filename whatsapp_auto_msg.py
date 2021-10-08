@@ -1,5 +1,7 @@
 from selenium import webdriver
 
+action = "Yes"
+
 opt = webdriver.ChromeOptions()
 opt.add_argument("--user-data-dir=chrome-data")
 opt.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -7,9 +9,9 @@ opt.add_experimental_option('useAutomationExtension', False)
 
 #driver = webdriver.Firefox(options=opt, executable_path='/path/of/geckodriver')
 driver = webdriver.Chrome(options = opt)
-driver.get('https://web.whatsapp.com/')		#first time scan is enough
+driver.get('https://web.whatsapp.com/')
 
-while(True):
+while(action != "no"):
 
 	name = input("Enter the name of group or user :")
 	msg = input('Enter the message :')
@@ -28,3 +30,4 @@ while(True):
 		button.click()
 
 	print("Finished....!")
+	action = input("Do you want countinue [Yes/no] :")
