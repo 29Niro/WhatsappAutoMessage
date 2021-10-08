@@ -9,20 +9,22 @@ opt.add_experimental_option('useAutomationExtension', False)
 driver = webdriver.Chrome(options = opt)
 driver.get('https://web.whatsapp.com/')		#first time scan is enough
 
-name = input("Enter the name of group or user :")
-msg = input('Enter the message :')
-count=int(input('Enter the count :'))
+while(True):
 
-input('Enter anything after scanning QR code :')
+	name = input("Enter the name of group or user :")
+	msg = input('Enter the message :')
+	count=int(input('Enter the count :'))
 
-user = driver.find_element_by_xpath('//span[@title="{}"]'.format(name))
-user.click()
+	input('Enter anything after scanning QR code :')
 
-msg_box = driver.find_element_by_class_name('p3_M1')	#<div tabindex="-1" class="p3_M1">
+	user = driver.find_element_by_xpath('//span[@title="{}"]'.format(name))
+	user.click()
 
-for i in range(count):
-	msg_box.send_keys(msg)
-	button = driver.find_element_by_class_name('_4sWnG')	#<button class="_4sWnG">
-	button.click()
+	msg_box = driver.find_element_by_class_name('p3_M1')	#<div tabindex="-1" class="p3_M1">
 
-print("Finished....!")
+	for i in range(count):
+		msg_box.send_keys(msg)
+		button = driver.find_element_by_class_name('_4sWnG')	#<button class="_4sWnG">
+		button.click()
+
+	print("Finished....!")
